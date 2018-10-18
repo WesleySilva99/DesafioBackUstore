@@ -1,0 +1,2 @@
+sqluser: wesley
+sqlpassword: 123456
