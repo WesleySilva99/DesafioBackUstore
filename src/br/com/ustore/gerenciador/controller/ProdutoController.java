@@ -22,7 +22,7 @@ public class ProdutoController {
 	}
 
 	@RequestMapping("inserir")
-	public String save(Produto produto, @RequestParam("file") MultipartFile imagem) {
+	public String save(Produto produto, @RequestParam("file") MultipartFile imagem, Model model) {
 
 		if (Util.fazerUploadImagem(imagem)) {
 			produto.setImagem(Util.obterMomentoAtual() + " - " + imagem.getOriginalFilename());
@@ -30,7 +30,9 @@ public class ProdutoController {
 
 		ProdutoDao dao = new ProdutoDao();
 		dao.inserir(produto);
-		return "produto/incluirSucesso";
+		
+		model.addAttribute("msg", "Produto Cadastrado com sucesso!");
+		return "exibirInserir";
 	}
 
 	@RequestMapping("exibirConsulta")
@@ -42,14 +44,11 @@ public class ProdutoController {
 		System.out.println("Exibindo Tela de Consulta com TagLib.");
 		return "produto/consultar";
 	}
-
-	@RequestMapping("exibirConsultaScriplet")
-	public String exibirConsultaScriplet(Model model) {
-		
-
-		System.out.println("Exibindo Tela de Consulta com Scriplet.");
-		
-		return "produto/consultarScriplet";
+	
+	@RequestMapping("exibirAlterar")
+	public String exibirAlterar() {
+		System.out.println("Exibindo Tela de inserção de Produto.");
+		return "produto/alterar";
 	}
 
 

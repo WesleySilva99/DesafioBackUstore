@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Inserção de Produtos</title>
+<title>Alteração dos dados do Produtos</title>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" />
 
@@ -15,10 +15,8 @@
 <body>
 <c:import url="../nav.jsp" />
 
-<div style="text-align: center; color: red;"> ${msg} </div>
-
 <center>
-	<h1>Inserir Produto</h1>
+	<h1>Alterar Dados do Produto</h1>
 	<form action="inserir" method="post" enctype="multipart/form-data">
 		<p>
 			Código: <br /> <input type="text" name="codigo" />
